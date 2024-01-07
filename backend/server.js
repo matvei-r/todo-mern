@@ -1,5 +1,6 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://matthewvat:spyology@cluster0.x1zwzy4.mongodb.net/?retryWrites=true&w=majority";
+require('dotenv').config(); 
+const uri = process.env.ATLAS_URI; 
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -12,8 +13,6 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    // // Connect the client to the server	(optional starting in v4.7)
-    // await client.connect();
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
@@ -22,31 +21,8 @@ async function run() {
     await client.close();
   }
 }
-run().catch(console.dir);
+run().catch(console.dir); 
 
 
 
-
-
-
-
-
-
-// const express = require("express");
-// const app = express(); 
-
-// const port = process.env.PORT || 5000;
-
-// app.listen(port, () => {
-//   console.log(`Node API is running on port ${port}`);
-// })
-
-
-
-// const cors = require("cors");
-// require("dotenv").config({ path: "./config.env" });
-
-
-// app.use(cors());
-// app.use(express.json());
 
