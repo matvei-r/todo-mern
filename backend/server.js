@@ -22,6 +22,9 @@ app.use(express.json());
 const routes = require('./routes/routes');
 app.use('/api', routes);
 
+app.listen(port, () => {
+  console.log(`listening on ${port}`)
+})
 
 
 
