@@ -28,6 +28,10 @@ app.listen(port, () => {
   console.log(`listening on ${port}`)
 })
 
+app.get('/', (req, res) => {
+  res.send("lala")
+})
+
 
 
 

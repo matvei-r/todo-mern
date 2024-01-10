@@ -5,9 +5,14 @@ function App() {
   const [text, setText] = useState("")
 
   const handleSubmit = async () => {
-    const response = await fetch('http://localhost:5000/api/getAll')
 
-    console.log(response); 
+    try {
+      const response = await fetch('http://localhost:5000/api/getAll')
+      console.log(response); 
+    }
+    catch (error){
+      console.log(error)
+    }
 
   }
 
